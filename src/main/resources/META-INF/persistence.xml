@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    <persistence-unit name="hello">
+        <properties>
+            <!-- 필수 속성 --><!-- 데이터베이스 접근 정보-->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/jpashop"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <!--중요! jpa는 특정 데이터베이스에 종속이 안됨. 각 데이터 베이스가 제공하는 sql문법, 함수는 조금씩 다름. 각 db에서 표준적인지 않은
+            aka 방언들은 특히 페이징쿼리! 나 이 db에서 쓰는 방언을 쓸거야 라고 알려주는거. 그러면 jpa가 알아서 표준으로 바꿔줌 -->
+
+            <!-- 옵션 -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+    </persistence-unit>
+</persistence>
