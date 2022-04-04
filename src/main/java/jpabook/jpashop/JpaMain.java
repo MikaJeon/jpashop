@@ -1,5 +1,8 @@
 package jpabook.jpashop;
 
+import jpabook.jpashop.domain.Order;
+import jpabook.jpashop.domain.OrderItem;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -18,6 +21,9 @@ public class JpaMain {
         //트랜잭션이란?  데이터베이스의 상태를 변화시키기 해서 수행하는 작업의 단위
 
         try{
+            Order order = new Order();
+            order.addOrderItem(new OrderItem());
+
             tx.commit();//트랜젝션의 처리 과정을 데이터베이스에 반영하기 위해서, 변경된 내용을 모두 영구 저장. + 트랜잭션 종료
         }
         catch (Exception e){
