@@ -13,7 +13,7 @@ public class Category extends BaseEntity{
 
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name = "PARENT_ID")
     private  Category parent;//카테고리 내에서 나뉘는 값들을 셀프로 만들기
 
